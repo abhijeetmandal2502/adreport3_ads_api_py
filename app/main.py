@@ -919,6 +919,9 @@ def bulk_insert_conversion_goals(data):
                 )
             """)
             
+            # Truncate the table before inserting new data
+            cursor.execute("TRUNCATE TABLE public.google_campaign_conversion_goals")
+            
             # Prepare data for bulk insertion
             insert_query = """
                 INSERT INTO public.google_campaign_conversion_goals
